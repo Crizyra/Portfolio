@@ -3,6 +3,7 @@ import project1 from '../assets/project1.png';
 import project2 from '../assets/project2.png';
 import project3 from '../assets/project3.png';
 import project4 from '../assets/project4.png';
+import project5 from '../assets/project5.png';
 
 const Projects = ({ darkMode }) => {
   const projects = [
@@ -37,6 +38,14 @@ const Projects = ({ darkMode }) => {
       image: project4,
       tags: ['Figma', 'React', 'MongoDb'],
       link: 'https://www.figma.com/design/p6BqYgpIh6h1DcndMSrKav/Prototype?node-id=0-1&t=JgEZne0wYNZ5pS5U-1',
+    },
+    {
+      id: 5,
+      title: 'UServe',
+      desc: 'Deliver thoughtful medical information and alerts in your facility',
+      image: project5,
+      tags: ['Figma', 'React', 'MongoDb'],
+      link: 'https://www.figma.com/proto/0OwNtlA77zluRhCFkdzUoS/Website?node-id=2459-377&t=1Zat2IoiBXzYWVss-0&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2459%3A124',
     },
   ];
 

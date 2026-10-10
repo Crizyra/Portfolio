@@ -1,8 +1,42 @@
-import { DownloadIcon } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import CV from '../assets/cv.pdf';
 import hero from '../assets/hero1.png';
 
 const Hero = ({ darkMode }) => {
+  const fullText = "Crizyra Madayag, C.";
+  const [displayText, setDisplayText] = useState('');
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+    AOS.refresh();
+
+    let index = 0;
+    let timer;
+
+    const type = () => {
+      if (index < fullText.length) {
+        setDisplayText(fullText.slice(0, index + 1));
+        index++;
+        timer = setTimeout(type, 120);
+      } else {
+        timer = setTimeout(() => {
+          index = 0;
+          setDisplayText('');
+          type();
+        }, 2000);
+      }
+    };
+
+    type();
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const socialIcons = [
     { icon: "https://cdn-icons-png.flaticon.com/512/174/174855.png", alt: 'Instagram', link: 'https://instagram.com/' },
     { icon: "https://cdn-icons-png.flaticon.com/512/733/733553.png", alt: 'Github', link: 'https://github.com/' },
@@ -28,14 +62,18 @@ const Hero = ({ darkMode }) => {
   const theme = darkMode ? darkTheme : lightTheme;
 
   return (
-    <div className='relative overflow-hidden min-h-screen flex flex-col'>
+    <div 
+      id='home' 
+      className='relative overflow-hidden min-h-screen flex flex-col pt-32 pb-16 scroll-mt-28'
+    >
       <section
-        id='home'
         data-aos='fade-up'
         data-aos-delay='250'
-        className='body-font z-10'
+        className='body-font z-10 w-full my-auto'
       >
-        <div className='container mx-auto flex px-4 sm:px-8 lg:px-14 py-12 lg:py-14 flex-col lg:flex-row items-center justify-between lg:mt-14 mt-14'>
+        <div className='container mx-auto flex px-4 sm:px-8 lg:px-14 flex-col lg:flex-row items-center justify-between'>
+
+          {/* Left Side Container */}
           <div className='lg:w-1/2 w-full flex flex-col items-center lg:items-start text-center lg:text-left mb-12 lg:mb-0'>
             <div className='flex justify-center lg:justify-start gap-4 sm:gap-6 mb-6 sm:mb-7 w-full'>
               {socialIcons.map((social, index) => (
@@ -44,6 +82,7 @@ const Hero = ({ darkMode }) => {
                   href={social.link}
                   target='_blank'
                   rel='noopener noreferrer'
+                  data-aos='fade-up'
                   data-aos-delay={`${400 + index * 100}`}
                   className='transform hover:scale-110 transition-transform duration-300'
                 >
@@ -62,8 +101,8 @@ const Hero = ({ darkMode }) => {
               data-aos-delay='500'
             >
               Hi, it’s me{' '}
-              <span style={{ color: '#f97316' }}>
-                Crizyra Madayag, C.
+              <span className="text-orange-500 inline-block border-r-2 border-orange-500">
+                {displayText}
               </span>
             </h1>
 
@@ -75,14 +114,14 @@ const Hero = ({ darkMode }) => {
               I’m a creative UI/UX designer who specializes in Wireframing & Prototyping, finding joy in shaping ideas into intuitive layouts and interactive experiences during the early stages of design.
             </p>
 
-            {/* Buttons*/}
+            {/* Buttons */}
             <div className='w-full pt-4 sm:pt-6'>
               <div
                 className='flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4'
                 data-aos='fade-up'
                 data-aos-delay='700'
               >
-                {/* Download CV Button */}
+                {/* Download CV Button*/}
                 <a href={CV} download className='no-underline'>
                   <div className="custom-download-btn" data-tooltip="Size: 1.2 MB">
                     <div className="button-wrapper">

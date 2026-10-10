@@ -5,10 +5,10 @@ import javascript from '../assets/javascript.png';
 
 const Skills = ({ darkMode }) => {
   const skills = [
-    { name: 'Figma', icon: figma, level: 60, color: 'from-orange-500 to-amber-500' },
-    { name: 'Java', icon: java, level: 50, color: 'from-blue-500 to-cyan-500' },
-    { name: 'Python', icon: python, level: 45, color: 'from-yellow-500 to-orange-500' },
-    { name: 'JavaScript', icon: javascript, level: 40, color: 'from-cyan-500 to-teal-500' },
+    { name: 'Figma', icon: figma, level: 55, color: 'from-orange-500 to-amber-500' },
+    { name: 'Java', icon: java, level: 30, color: 'from-blue-500 to-cyan-500' },
+    { name: 'Python', icon: python, level: 30, color: 'from-yellow-500 to-orange-500' },
+    { name: 'JavaScript', icon: javascript, level: 25, color: 'from-cyan-500 to-teal-500' },
   ];
 
   return (

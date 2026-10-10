@@ -57,13 +57,13 @@ const About = ({ darkMode }) => {
 
           <div className="flex justify-center lg:justify-start gap-6 sm:gap-8 mb-8">
             <div className="text-center" data-aos="zoom-in" data-aos-delay="600">
-              <div className="text-2xl sm:text-3xl font-bold text-orange-400">2+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-orange-400">3+</div>
               <div className={`${darkMode ? "text-gray-300" : "text-gray-600"}`}>
                 Education
               </div>
             </div>
             <div className="text-center" data-aos="zoom-in" data-aos-delay="650">
-              <div className="text-2xl sm:text-3xl font-bold text-orange-400">1+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-orange-400">2+</div>
               <div className={`${darkMode ? "text-gray-300" : "text-gray-600"}`}>
                 Years Experience
               </div>
